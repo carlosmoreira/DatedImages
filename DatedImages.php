@@ -8,7 +8,7 @@ Author: Carlos Moreira
 Author URI: http://therealcarlos.com/
 */
 
-add_action('init', 'dicm_buttons');
+add_action('admin_init', 'dicm_buttons');
 function dicm_buttons()
 {
     wp_print_scripts('jquery');
@@ -23,12 +23,11 @@ function dicm_buttons()
     wp_enqueue_script('thickbox');
     add_filter("mce_external_plugins", "dicm_add_buttons");
     add_filter('mce_buttons', 'dicm_register_buttons');
-
 }
 
 function dicm_add_buttons($plugin_array)
 {
-    $plugin_array['dicm'] = plugins_url('mygallery_plugin.js', __FILE__);
+    $plugin_array['dicm'] = plugins_url('datedimages.js', __FILE__);
     return $plugin_array;
 }
 
